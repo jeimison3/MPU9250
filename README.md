@@ -38,6 +38,12 @@ An MPU9250 object should be declared, specifying the I2C bus and MPU-9250 I2C ad
 MPU9250 IMU(Wire,0x68);
 ```
 
+or, if ADO = 1:
+
+```C++
+MPU9250 IMU(Wire,0x69);
+```
+
 ### SPI Object Declaratioon
 
 **MPU9250(SPIClass &bus,uint8_t csPin)**
@@ -53,9 +59,13 @@ The following functions are used to setup the MPU-9250 sensor. These should be c
 **int begin()**
 This should be called in your setup function. It initializes communication with the MPU-9250, sets up the sensor for reading data, and estimates the gyro bias, which is removed from the sensor data. This function returns a positive value on a successful initialization and returns a negative value on an unsuccesful initialization. If unsuccessful, please check your wiring or try resetting power to the sensor. The following is an example of setting up the MPU-9250.
 
+With this example, D1 (from ESP12) is SDA and D2 (from ESP12) is SCL.
+You can overwrite this values with GPIO ESP32 pins.
+So remember: IMU.begin(SDA, SCL).
+
 ```C++
 int status;
-status = IMU.begin();
+status = IMU.begin(D1,D2);
 ```
 
 #### Configuration Functions
