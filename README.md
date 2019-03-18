@@ -1,5 +1,8 @@
 # MPU9250
-Arduino library for communicating with the [MPU-9250](https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/) and MPU-9255 nine-axis Inertial Measurement Units (IMU).
+
+Arduino library (compatible with ESP12 and ESP32) for communicating with the [MPU-9250](https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/) and MPU-9255 nine-axis Inertial Measurement Units (IMU).
+
+See the original repository [here](https://github.com/bolderflight/MPU9250).
 
 ***Developing with the [Teensy 3.2](https://www.pjrc.com/store/teensy32.html) or [LC](https://www.pjrc.com/store/teensylc.html)? Consider buying our [Teensy Motion Backpack](http://bolderflight.com/products/teensy/motion/), which integrates an MPU-9250 and BME-280 into a stackable add-on module, thoughtfully designed to integrate perfectly with the Teensy. Check out all of our wonderfully small and powerful [Teensy Backpacks](http://bolderflight.com/products/teensy/)***
 
