@@ -39,7 +39,7 @@ MPU9250::MPU9250(SPIClass &bus,uint8_t csPin){
 }
 
 /* starts communication with the MPU-9250 */
-int MPU9250::begin(){
+int MPU9250::begin(int PINA, int PINB){
   if( _useSPI ) { // using SPI for communication
     // use low speed SPI for register setting
     _useSPIHS = false;
@@ -51,7 +51,7 @@ int MPU9250::begin(){
     _spi->begin();
   } else { // using I2C for communication
     // starting the I2C bus
-    _i2c->begin();
+    _i2c->begin(PINA,PINB);
     // setting the I2C clock
     _i2c->setClock(_i2cRate);
   }
@@ -844,6 +844,7 @@ int MPU9250::calibrateMag() {
   // collect data to find max / min in each channel
   _counter = 0;
   while (_counter < _maxCounts) {
+	  Serial.print(_counter*100/_maxCounts);Serial.println("%");
     _delta = 0.0f;
     _framedelta = 0.0f;
     readSensor();
