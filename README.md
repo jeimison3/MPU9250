@@ -4,6 +4,11 @@ Arduino library (compatible with ESP12 and ESP32) for communicating with the [MP
 
 See the original repository [here](https://github.com/bolderflight/MPU9250).
 
+# Definitions
+
+With ESP32 we can chose SDA and SCL pins to I2C work with. The way we can do this with the library is setting the `#define _MPU_SET_PINS = "DEFAULT"` for default pins, or `#define _MPU_SET_PINS` following by `#define _MPU_SET_PIN_SDA 25` and `#define _MPU_SET_PIN_SCL 33` being SDA and SCL the pins 25 and 33. If you dont define them, the `.begin()` will not occur (being passed by parameter for example).
+
+
 ***Developing with the [Teensy 3.2](https://www.pjrc.com/store/teensy32.html) or [LC](https://www.pjrc.com/store/teensylc.html)? Consider buying our [Teensy Motion Backpack](http://bolderflight.com/products/teensy/motion/), which integrates an MPU-9250 and BME-280 into a stackable add-on module, thoughtfully designed to integrate perfectly with the Teensy. Check out all of our wonderfully small and powerful [Teensy Backpacks](http://bolderflight.com/products/teensy/)***
 
 # Description
