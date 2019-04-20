@@ -64,13 +64,17 @@ The following functions are used to setup the MPU-9250 sensor. These should be c
 **int begin()**
 This should be called in your setup function. It initializes communication with the MPU-9250, sets up the sensor for reading data, and estimates the gyro bias, which is removed from the sensor data. This function returns a positive value on a successful initialization and returns a negative value on an unsuccesful initialization. If unsuccessful, please check your wiring or try resetting power to the sensor. The following is an example of setting up the MPU-9250.
 
-With this example, D1 (from ESP12) is SDA and D2 (from ESP12) is SCL.
+With this example, D1 (from NodeMCU) is SDA and D2 (from NodeMCU) is SCL.
 You can overwrite this values with GPIO ESP32 pins.
-So remember: IMU.begin(SDA, SCL).
+
 
 ```C++
+#define _MPU_SET_PINS
+#define _MPU_SET_PIN_SDA D1
+#define _MPU_SET_PIN_SCL D2
+
 int status;
-status = IMU.begin(D1,D2);
+status = IMU.begin();
 ```
 
 #### Configuration Functions
