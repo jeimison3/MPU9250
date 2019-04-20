@@ -49,16 +49,16 @@ int MPU9250::begin(){
     // setting CS pin high
     digitalWrite(_csPin,HIGH);
     // begin SPI communication
-    #ifdef __SET_PINS
+    #ifdef _MPU_SPI_DEFAULT_PIN
     _spi->begin();
     #endif
   } else { // using I2C for communication
     // starting the I2C bus
 
-    #if defined(_MPU_SET_PINS) && _MPU_SET_PINS == "DEFAULT"
+    #if defined(_MPU_I2C_DEFAULT_PIN) 
     _i2c->begin();
-    #elif defined(_MPU_SET_PINS) && defined(_MPU_SET_PIN_SDA) && defined(_MPU_SET_PIN_SCL)
-    _i2c->begin(_MPU_SET_PIN_SDA,_MPU_SET_PIN_SCL);
+    #elif defined(_MPU_I2C_SDA_PIN) && defined(_MPU_I2C_SCL_PIN)
+    _i2c->begin(_MPU_SET_PIN_SDA, _MPU_SET_PIN_SCL);
     #endif
 
     // setting the I2C clock
